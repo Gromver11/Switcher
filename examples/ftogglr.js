@@ -46,7 +46,6 @@ function ftogglr(event) {
             element.classList.add(ExclusiveAddValue);
             element.nextElementSibling.classList.add(ExclusiveAddValue);
             element.previousElementSibling.classList.add(ExclusiveAddValue);
-            console.log(ExclusiveAddValue);
         })
     }
     else {
