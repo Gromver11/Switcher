@@ -17,7 +17,7 @@ const app = window => {
 
   window.addEventListener("load", init);
   function init() {
-   document.documentElement.classList.add("togglr");
+    document.documentElement.classList.add("togglr");
   }
   document.addEventListener("click", ftogglr);
 
@@ -35,7 +35,7 @@ const app = window => {
     if (toggleClass !== null) {
       const toggleClassValue = toggleClass.dataset.togglrToggle;
       selectorValueEl.forEach(function (element) {
-        element.classList.toggle(ToggleClassValue);
+        element.classList.toggle(toggleClassValue);
       })
     }
     else if (addClass !== null) {
@@ -75,8 +75,8 @@ const app = window => {
 };
 //Переменные окружения
 
-if (process.env.BROWSER){
-    app(window);
+if (process.env.BROWSER) {
+  app(window);
 }
 
 module.exports = app;
