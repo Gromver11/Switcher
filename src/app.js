@@ -46,9 +46,10 @@ const app = (window) => {
         element.nextElementSibling.classList.add(exclusiveAddValue);
         element.previousElementSibling.classList.add(exclusiveAddValue);
       });
+    } else if (controlItem.hasAttribute('data-prevent-default')) {
+      event.preventDefault();
     }
   }
   document.addEventListener('click', ftogglr);
-  console.log(q);
 };
 export default app;
