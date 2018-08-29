@@ -13,10 +13,12 @@ const app = (window) => {
   function ftogglr(event) {
     const { target } = event;
     const controlItem = target.closest('[data-toggl-target]');
+    if (controlItem === null) {
+      console.error('Error detected');
+      return;
+    }
     const selectorValue = controlItem.dataset.togglTarget;
     const selectorValueEl = document.querySelectorAll(selectorValue);
-
-
     if (controlItem.hasAttribute('data-togglr-toggle')) {
       const toggleClassValue = controlItem.dataset.togglrToggle;
       selectorValueEl.forEach((element) => {

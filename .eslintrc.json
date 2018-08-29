@@ -1,9 +1,11 @@
 {
     "extends": "airbnb-base",
-        
-        "env": {
-          "jest": true,
-          "browser":true
-          },   
+    "rules": {
+        "no-console":0
+    },
+    "env": {
+        "jest": true,
+        "browser": true
+    },
     "root": true
 }
