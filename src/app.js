@@ -8,7 +8,7 @@ const app = (window) => {
   function init() {
     document.documentElement.classList.add('togglr');
   }
-  window.addEventListener('DOMContentloaded', init);
+  document.addEventListener('DOMContentLoaded', init);
 
   function ftogglr(event) {
     const { target } = event;
