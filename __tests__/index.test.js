@@ -85,4 +85,11 @@ describe('app', () => {
     btn.click();
     expect(console.error).toBeCalledWith('Error detected');
   });
+  it('Проверка успешной инициализации', () => {
+    app(window);
+    const dcl = window.document.createEvent('Event');
+    dcl.initEvent('DOMContentLoaded', true, true);
+    window.document.dispatchEvent(dcl);
+    expect(window.document.documentElement.classList.contains('togglr')).toBe(true);
+  });
 });
