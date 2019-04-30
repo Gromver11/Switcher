@@ -1,4 +1,4 @@
-function polyfill(css) {
+function closestForIe(css) {
   let node = this;
 
   while (node) {
@@ -9,4 +9,4 @@ function polyfill(css) {
 }
 
 
-export default polyfill;
+export default closestForIe;
