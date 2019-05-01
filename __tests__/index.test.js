@@ -92,4 +92,14 @@ describe('app', () => {
     window.document.dispatchEvent(dcl);
     expect(window.document.documentElement.classList.contains('togglr')).toBe(true);
   });
+  it('Проверка срабатывания класса по умолчанию', () => {
+    const window = createWindowWith(
+      "<button data-toggl-target='.block'>click me</button><div class='block'>my block</div>",
+    );
+    app(window);
+    const btn = window.document.querySelector('button');
+    btn.click();
+    const block = window.document.querySelector('.block');
+    expect(block.classList.contains('IsActive')).toBe(true);
+  });
 });
