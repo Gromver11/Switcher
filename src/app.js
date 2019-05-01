@@ -23,6 +23,7 @@ const app = (window) => {
     }
     const selectorValue = controlItem.getAttribute('data-toggl-target');
     const selectorValueEl = document.querySelectorAll(selectorValue);
+    const defClass = 'IsActive';
     const attributeToAction = {
       'data-togglr-toggle': () => {
         selectorValueEl.forEach((element) => {
@@ -53,9 +54,16 @@ const app = (window) => {
           element.previousElementSibling.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
         });
       },
+      default: () => {
+        selectorValueEl.forEach((element) => {
+          element.classList.toggle(defClass);
+        });
+      },
     };
     const attributeOnELement = Object.keys(attributeToAction).find(attr => controlItem.hasAttribute(attr));
-    if (attributeOnELement) { attributeToAction[attributeOnELement](); }
+    if (attributeOnELement) { attributeToAction[attributeOnELement](); } else {
+      attributeToAction.default();
+    }
   }
   document.addEventListener('click', switcher);
 };
