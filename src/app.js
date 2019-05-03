@@ -2,6 +2,7 @@ import closestForIe from './polyfills/closest';
 import './polyfills/matches';
 import './polyfills/forEach';
 import './polyfills/Find';
+import removeCLassfromSiblings from './removeClassfromSiblings';
 
 const app = (window) => {
   const { document, Element } = window;
@@ -16,12 +17,12 @@ const app = (window) => {
   function switcher(event) {
     event.preventDefault();
     const { target } = event;
-    const controlItem = target.closest('[data-toggl-target]');
+    const controlItem = target.closest('[data-togglr-target]');
     if (controlItem === null) {
       console.error('Error detected');
       return;
     }
-    const selectorValue = controlItem.getAttribute('data-toggl-target');
+    const selectorValue = controlItem.getAttribute('data-togglr-target');
     const selectorValueEl = document.querySelectorAll(selectorValue);
     const defClass = 'IsActive';
     const attributeToAction = {
@@ -42,16 +43,14 @@ const app = (window) => {
       },
       'data-togglr-exclusive': () => {
         selectorValueEl.forEach((element) => {
-          element.classList.add(controlItem.getAttribute('data-togglr-exclusive'));
-          element.nextElementSibling.classList.remove(controlItem.getAttribute('data-togglr-exclusive'));
-          element.previousElementSibling.classList.remove(controlItem.getAttribute('data-togglr-exclusive'));
+          removeCLassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusive'));
+          element.classList.toggle(controlItem.getAttribute('data-togglr-exclusive'));
         });
       },
       'data-togglr-exclusiveAdd': () => {
         selectorValueEl.forEach((element) => {
+          removeCLassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusiveAdd'));
           element.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
-          element.nextElementSibling.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
-          element.previousElementSibling.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
         });
       },
       default: () => {
