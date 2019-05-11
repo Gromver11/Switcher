@@ -2,7 +2,7 @@ import closestForIe from './polyfills/closest';
 import './polyfills/matches';
 import './polyfills/forEach';
 import './polyfills/Find';
-import removeCLassfromSiblings from './removeClassfromSiblings';
+import removeClassfromSiblings from './removeClassfromSiblings';
 
 const app = (window) => {
   const { document, Element } = window;
@@ -43,13 +43,13 @@ const app = (window) => {
       },
       'data-togglr-exclusive': () => {
         selectorValueEl.forEach((element) => {
-          removeCLassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusive'));
+          removeClassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusive'));
           element.classList.toggle(controlItem.getAttribute('data-togglr-exclusive'));
         });
       },
       'data-togglr-exclusiveAdd': () => {
         selectorValueEl.forEach((element) => {
-          removeCLassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusiveAdd'));
+          removeClassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusiveAdd'));
           element.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
         });
       },
