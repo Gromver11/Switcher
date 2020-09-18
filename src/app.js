@@ -1,7 +1,7 @@
 import closestForIe from './polyfills/closest';
 import './polyfills/matches';
 import './polyfills/forEach';
-import './polyfills/Find';
+import './polyfills/find';
 import removeClassfromSiblings from './removeClassfromSiblings';
 
 const app = (window) => {
@@ -19,7 +19,7 @@ const app = (window) => {
     const { target } = event;
     const controlItem = target.closest('[data-togglr-target]');
     if (controlItem === null) {
-      console.error('Error detected');
+      console.warn('Error detected');
       return;
     }
     const selectorValue = controlItem.getAttribute('data-togglr-target');

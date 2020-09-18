@@ -80,10 +80,10 @@ describe('app', () => {
       "<button data-togglr-toggle ='color'>click me</button><div class='block'>my block</div>",
     );
     app(window);
-    console.error = jest.fn();
+    console.warn = jest.fn();
     const btn = window.document.querySelector('button');
     btn.click();
-    expect(console.error).toBeCalledWith('Error detected');
+    expect(console.warn).toBeCalledWith('Error detected');
   });
   it('Проверка успешной инициализации', () => {
     app(window);
