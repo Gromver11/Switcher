@@ -8,5 +8,4 @@ function closestForIe(css) {
   return null;
 }
 
-
 export default closestForIe;

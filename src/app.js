@@ -28,12 +28,16 @@ const app = (window) => {
     const attributeToAction = {
       'data-togglr-toggle': () => {
         selectorValueEl.forEach((element) => {
-          element.classList.toggle(controlItem.getAttribute('data-togglr-toggle'));
+          element.classList.toggle(
+            controlItem.getAttribute('data-togglr-toggle')
+          );
         });
       },
       'data-togglr-remove': () => {
         selectorValueEl.forEach((element) => {
-          element.classList.remove(controlItem.getAttribute('data-togglr-remove'));
+          element.classList.remove(
+            controlItem.getAttribute('data-togglr-remove')
+          );
         });
       },
       'data-togglr-add': () => {
@@ -43,14 +47,24 @@ const app = (window) => {
       },
       'data-togglr-exclusive': () => {
         selectorValueEl.forEach((element) => {
-          removeClassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusive'));
-          element.classList.toggle(controlItem.getAttribute('data-togglr-exclusive'));
+          removeClassfromSiblings(
+            element,
+            controlItem.getAttribute('data-togglr-exclusive')
+          );
+          element.classList.toggle(
+            controlItem.getAttribute('data-togglr-exclusive')
+          );
         });
       },
       'data-togglr-exclusiveAdd': () => {
         selectorValueEl.forEach((element) => {
-          removeClassfromSiblings(element, controlItem.getAttribute('data-togglr-exclusiveAdd'));
-          element.classList.add(controlItem.getAttribute('data-togglr-exclusiveAdd'));
+          removeClassfromSiblings(
+            element,
+            controlItem.getAttribute('data-togglr-exclusiveAdd')
+          );
+          element.classList.add(
+            controlItem.getAttribute('data-togglr-exclusiveAdd')
+          );
         });
       },
       default: () => {
@@ -59,8 +73,12 @@ const app = (window) => {
         });
       },
     };
-    const attributeOnELement = Object.keys(attributeToAction).find(attr => controlItem.hasAttribute(attr));
-    if (attributeOnELement) { attributeToAction[attributeOnELement](); } else {
+    const attributeOnELement = Object.keys(attributeToAction).find((attr) =>
+      controlItem.hasAttribute(attr)
+    );
+    if (attributeOnELement) {
+      attributeToAction[attributeOnELement]();
+    } else {
       attributeToAction.default();
     }
   }

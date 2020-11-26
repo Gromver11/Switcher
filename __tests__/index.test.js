@@ -2,12 +2,13 @@ const { JSDOM } = require('jsdom');
 
 const app = require('../src/index.js');
 
-const createWindowWith = body => new JSDOM(`<!DOCTYPE html><html><body>${body}</body></html>`).window;
+const createWindowWith = (body) =>
+  new JSDOM(`<!DOCTYPE html><html><body>${body}</body></html>`).window;
 
 describe('app', () => {
   it('При клике на элемент добавляется класс на указанный блок', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block' data-togglr-add='active-block'>click me</button><div class='block'>my block</div>",
+      "<button data-togglr-target='.block' data-togglr-add='active-block'>click me</button><div class='block'>my block</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
@@ -17,7 +18,7 @@ describe('app', () => {
   });
   it('При клике на элемент удаляется класс с указанного блока', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block' data-togglr-remove='active-block'>click me</button><div class='block active-block'>my block</div>",
+      "<button data-togglr-target='.block' data-togglr-remove='active-block'>click me</button><div class='block active-block'>my block</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
@@ -27,7 +28,7 @@ describe('app', () => {
   });
   it('Находим манипулирующий элелемент снаружи кликнутого', () => {
     const window = createWindowWith(
-      "<button data-toggl-target='.block' data-togglr-remove='active-block'><span>click me</span></button><div class='block active-block'>my block</div>",
+      "<button data-toggl-target='.block' data-togglr-remove='active-block'><span>click me</span></button><div class='block active-block'>my block</div>"
     );
     app(window);
     const span = window.document.querySelector('span');
@@ -37,7 +38,7 @@ describe('app', () => {
   });
   it('При клике на элемент переключается класс у указанного блока', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block' data-togglr-toggle='active-block'>click me</button><div class='block'>my block</div>",
+      "<button data-togglr-target='.block' data-togglr-toggle='active-block'>click me</button><div class='block'>my block</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
@@ -49,7 +50,7 @@ describe('app', () => {
   });
   it('При клике на манипулирующий элемент переключает класс у целевого и удаляет этот класс у соседних элементов', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block' data-togglr-exclusive='color'>click me</button><div class='color another-block'>hello</div><div class='block'>my block</div><div class='color other-block'>World</div>",
+      "<button data-togglr-target='.block' data-togglr-exclusive='color'>click me</button><div class='color another-block'>hello</div><div class='block'>my block</div><div class='color other-block'>World</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
@@ -63,7 +64,7 @@ describe('app', () => {
   });
   it('При клике на манипулирующий элемент добавляет класс на целевой элемент и удаляет этот класс у соседних элементов', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block' data-togglr-exclusiveAdd='color'>click me</button><div class='another-block color'>hello</div><div class='block'>my block</div><div class='other-block color'>World</div>",
+      "<button data-togglr-target='.block' data-togglr-exclusiveAdd='color'>click me</button><div class='another-block color'>hello</div><div class='block'>my block</div><div class='other-block color'>World</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
@@ -77,7 +78,7 @@ describe('app', () => {
   });
   it('Отсутствие атрибута data-togglr-target', () => {
     const window = createWindowWith(
-      "<button data-togglr-toggle ='color'>click me</button><div class='block'>my block</div>",
+      "<button data-togglr-toggle ='color'>click me</button><div class='block'>my block</div>"
     );
     app(window);
     console.warn = jest.fn();
@@ -90,11 +91,13 @@ describe('app', () => {
     const dcl = window.document.createEvent('Event');
     dcl.initEvent('DOMContentLoaded', true, true);
     window.document.dispatchEvent(dcl);
-    expect(window.document.documentElement.classList.contains('togglr')).toBe(true);
+    expect(window.document.documentElement.classList.contains('togglr')).toBe(
+      true
+    );
   });
   it('Проверка срабатывания класса по умолчанию', () => {
     const window = createWindowWith(
-      "<button data-togglr-target='.block'>click me</button><div class='block'>my block</div>",
+      "<button data-togglr-target='.block'>click me</button><div class='block'>my block</div>"
     );
     app(window);
     const btn = window.document.querySelector('button');
