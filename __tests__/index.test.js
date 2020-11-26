@@ -76,16 +76,6 @@ describe('app', () => {
     expect(fblock.classList.contains('color')).toBe(false);
     expect(sblock.classList.contains('color')).toBe(false);
   });
-  it('Отсутствие атрибута data-togglr-target', () => {
-    const window = createWindowWith(
-      "<button data-togglr-toggle ='color'>click me</button><div class='block'>my block</div>"
-    );
-    app(window);
-    console.warn = jest.fn();
-    const btn = window.document.querySelector('button');
-    btn.click();
-    expect(console.warn).toBeCalledWith('Error detected');
-  });
   it('Проверка успешной инициализации', () => {
     app(window);
     const dcl = window.document.createEvent('Event');

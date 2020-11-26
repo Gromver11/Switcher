@@ -19,7 +19,6 @@ const app = (window) => {
     const { target } = event;
     const controlItem = target.closest('[data-togglr-target]');
     if (controlItem === null) {
-      console.warn('Error detected');
       return;
     }
     const selectorValue = controlItem.getAttribute('data-togglr-target');
