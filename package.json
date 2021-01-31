@@ -1,5 +1,5 @@
 {
-  "name": "Switcher",
+  "name": "switcher",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gromver11/JS-togglr.git"
+    "url": "git+https://github.com/Gromver11/Switcher.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Gromver11/JS-togglr/issues"
+    "url": "https://github.com/Gromver11/Switcher/issues"
   },
-  "homepage": "https://github.com/Gromver11/JS-togglr#readme",
+  "homepage": "https://github.com/Gromver11/Switcher#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
