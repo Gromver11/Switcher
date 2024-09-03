@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/Gromver11/Switcher#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^8.2.2",
     "eslint": "^5.4.0",
     "eslint-cli": "^1.1.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -36,8 +36,8 @@
     "jsdom": "^11.11.0",
     "lint-staged": "^7.2.2",
     "prettier": "^2.2.0",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0"
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0"
   },
   "lint-staged": {
     "*.js": [
