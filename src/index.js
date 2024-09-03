@@ -1,6 +1,6 @@
-import app from './app';
+const app = require('./app');
 
-if (process.env.BROWSER) {
+if (window) {
   app(window);
 }
 

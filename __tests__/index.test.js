@@ -1,6 +1,11 @@
+import { TextEncoder, TextDecoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
 const { JSDOM } = require('jsdom');
 
-const app = require('../src/index.js');
+const app = require('../src/index');
 
 const createWindowWith = (body) =>
   new JSDOM(`<!DOCTYPE html><html><body>${body}</body></html>`).window;

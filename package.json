@@ -6,9 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack",
-    "lint": "eslint src",
-    "format": "prettier src --write",
-    "precommit": "lint-staged"
+    "lint": "eslint . --ext .js",
+    "format": "prettier src --write"
   },
   "repository": {
     "type": "git",
@@ -22,22 +21,21 @@
   },
   "homepage": "https://github.com/Gromver11/Switcher#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.4.0",
-    "eslint-cli": "^1.1.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^0.14.3",
-    "jest": "^23.4.1",
-    "jsdom": "^11.11.0",
-    "lint-staged": "^7.2.2",
-    "prettier": "^2.2.0",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^8.2.2",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^25.0.0",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.4.0",
+    "prettier": "^2.7.0",
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0"
   },
   "lint-staged": {
     "*.js": [
@@ -45,5 +43,13 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }

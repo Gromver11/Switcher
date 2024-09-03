@@ -1,28 +1,22 @@
-/*eslint-disable */
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const webpack = require('webpack');
-
 module.exports = {
   entry: './src/index.js',
-  mode: "production",
+  mode: 'production',
   output: {
     filename: 'switcher.min.js',
   },
 
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.BROWSER': JSON.stringify(true),
-    }),
-
-  ],
-    module:
-    {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /\/node_modules\//,
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
           loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-env', { targets: 'defaults' }]],
+          },
         },
-      ],
-    },
+      },
+    ],
+  },
 };
