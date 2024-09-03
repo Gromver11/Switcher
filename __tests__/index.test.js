@@ -1,3 +1,8 @@
+import { TextEncoder, TextDecoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
 const { JSDOM } = require('jsdom');
 
 const app = require('../src/index');
