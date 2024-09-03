@@ -1,7 +1,7 @@
 {
     "extends": ["airbnb-base","prettier"],
     "rules": {
-        "prettier/prettier": ["error", {}, {" usePrettierrc": true }],
+        "prettier/prettier": ["error", {}, {"usePrettierrc": true }],
         "max-len": ["error", { "code": 260 }]
     },
     "env": {
